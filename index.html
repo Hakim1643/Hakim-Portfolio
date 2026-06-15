@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakim Hisham | IT Portfolio</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+    line-height: 1.6;
+    color: #333;
+    /* Professional Tech-Blue/Grey Gradient */
+    background: linear-gradient(135deg, #eef2f3 0%, #dce4eb 100%) fixed;
+    min-height: 100vh;
+    margin: 0;
+}
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #111;
+            text-transform: uppercase;
+            border-bottom: 3px solid #b71c1c;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        /* Specific styling for Certificate titles */
+#certificates .card h3 {
+    color: #000000 !important; /* Forces the text to be black */
+    font-weight: 600;          /* Makes it bold/heavy */
+    font-size: 1.25rem;        /* Keeps it readable */
+    margin-bottom: 10px;
+}
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Layout & Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+    padding: 80px 0;
+    background-color: transparent !important; 
+}
+
+        /* Navigation */
+        nav {
+            background-color: #111;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a:hover {
+            color: #b71c1c;
+            transition: color 0.3s ease;
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        /* Profile Image Style */
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #b71c1c;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #b71c1c;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            min-width: 200px;
+        }
+
+        /* Grid Layouts for Skills and Projects */
+        /* Change this in your .grid-container */
+.grid-container {
+    display: grid;
+    /* Use a larger minmax or just one column for maximum impact */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); 
+    gap: 40px; /* Increase gap to let the design 'breathe' */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+        .card {
+    background: #ffffff;
+    border-radius: 8px;
+    /* Increased shadow for more depth */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); 
+    border-top: 4px solid #111;
+    overflow: hidden;
+    padding: 0;
+    /* Subtle transition for interactive feel */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.card-content {
+    padding: 25px; /* Move the padding here so the text stays nicely spaced */
+}
+
+        /* Card Image Style (Projects) */
+        .card-img {
+            width: calc(100% + 50px);
+            height: 200px;
+            object-fit: cover;
+            margin: -25px -25px 20px -25px;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card h3 {
+            color: #b71c1c;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style-position: inside;
+        }
+
+        /* Lists (Education & Experience) */
+        .timeline-item {
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 25px;
+            border-left: 4px solid #b71c1c;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .timeline-item span.date {
+            font-weight: bold;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           IMAGE SLIDER STYLES
+           ========================================= */
+        /* 1. The container now dictates the box size */
+.slider-container {
+    position: relative;
+    width: 100%;
+    /* This forces the container to be 16:9 ratio automatically */
+    aspect-ratio: 16 / 9; 
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+/* 2. The slide fills the container perfectly */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    /* 'cover' fills the box; 'center' keeps the focus */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Override the slider display:none for certificate cards */
+/* Fix for visibility issue */
+.card .slide {
+    display: block !important;
+    position: relative !important;
+    height: 200px !important;
+    cursor: zoom-in;
+}
+
+/* Style the link as a button */
+.card-content .highlight {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #b71c1c;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.card-content .highlight:hover {
+    background-color: #8e1616;
+}
+
+.card .slide {
+    cursor: zoom-in;
+}
+
+.slide.active {
+    display: block;
+    animation: fade 0.5s ease-in-out;
+}
+
+        @keyframes fade {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9); /* Dark background */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  margin-top: 5%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: white; font-size: 40px; cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #111;
+    color: #fff;
+}
+
+.footer-title {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* One clean red line */
+.footer-line {
+    border: 0;
+    border-top: 3px solid #b71c1c;
+    width: 300px;
+    margin: 0 auto 30px auto;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #888; /* Slightly greyed out for a professional look */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">HAKIM HISHAM</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#extracurricular">Extra-Curricular</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <img src="images/profile_photo.jpeg" alt="Hakim Hisham Profile" class="profile-img">
+            <h1>Hi, I'm <span class="highlight">Muhammad Hakim Bin Hisham</span></h1>
+            <p>IT Student at Universiti Teknologi PETRONAS | Passionate about data analytics, data-driven problem solving, and programming</p>
+            
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <h3>3.46</h3>
+                    <p>Current CGPA</p>
+                </div>
+                <div class="stat-box">
+                    <h3>5+</h3>
+                    <p>Programming Languages</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Internship Dates</h3>
+                    <p>7 September 2026 - 9 April 2027</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Third-year Bachelor of Information Technology (Hons) student at Universiti Teknologi PETRONAS. Passionate about data analytics, data-driven problem solving, and programming, with hands-on experience in data analysis, database management, and web application development.</p>
+            
+            <div class="grid-container" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>Vision</h3>
+                    <p>To support business and IT decision-making by applying analytical and technical skills in a professional environment.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission</h3>
+                    <p>To continuously build scalable web applications and intuitive data models that solve real-world problems and streamline everyday operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <p>I have developed a comprehensive technical foundation in data analytics, software programming, and network infrastructure through academic and practical projects. My expertise spans business intelligence, relational database management, full-stack web development, and network analysis. This diverse skill set enables me to engineer secure, optimized, and entirely data-driven IT solutions.</p>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>PYTHON</li>
+                        <li>SQL</li>
+                        <li>R</li>
+                        <li>C++</li>
+                        <li>C#</li>
+                        <li>HTML/CSS</li>
+                        <li>JAVASCRIPT</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Data Analytics</h3>
+                    <ul>
+                        <li>POWER BI</li>
+                        <li>POWER QUERY</li>
+                        <li>DAX</li>
+                        <li>MICROSOFT EXCEL</li>
+                        <li>PHPMYADMIN</li>
+                        <li>MYSQL</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Tools & Software</h3>
+                    <ul>
+                        <li>VISUAL STUDIO</li>
+                        <li>VS CODE</li>
+                        <li>MONGODB</li>
+                        <li>NODE.JS</li>
+                        <li>RSTUDIO</li>
+                        <li>HUAWEI ENSP</li>
+                        <li>WIRESHARK</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Design & Prototyping</h3>
+                    <ul>
+                        <li>FIGMA</li>
+                        <li>CANVA</li>
+                        <li>CAPCUT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <div class="slider-container" id="hirup-slider">
+                        <img src="images/HIRUP1.png" alt="Hirup Cafe 1" class="slide active">
+                        <img src="images/HIRUP2.png" alt="Hirup Cafe 2" class="slide">
+                        <img src="images/HIRUP3.png" alt="Hirup Cafe 3" class="slide">
+                        <img src="images/HIRUP4.png" alt="Hirup Cafe 4" class="slide">
+                        <img src="images/HIRUP5.png" alt="Hirup Cafe 5" class="slide">
+                        <button class="slider-btn prev-btn" onclick="changeSlide('hirup-slider', -1)">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="changeSlide('hirup-slider', 1)">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                    <h3>Hirup Cafe</h3>
+                    <p>Developed and deployed a prototype web platform for a cafe concept featuring user authentication, loyalty tracking, and interactive customer engagement.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="slider-container" id="sales-slider">
+                        <img src="images/Sales1.png" alt="Sales Dashboard 1" class="slide active">
+                        <img src="images/Sales2.png" alt="Sales Dashboard 2" class="slide">
+                        <button class="slider-btn prev-btn" onclick="changeSlide('sales-slider', -1)">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="changeSlide('sales-slider', 1)">&#10095;</button>
+                    </div>
+                    <h3>Global Sales Dashboard</h3>
+                    <p>Developed an interactive Power BI dashboard to analyze over $118M in revenue and 1.1M+ units sold using Power Query and DAX.</p>
+                </div>
+
+                <div class="card">
+                    <div class="slider-container" id="biteright-slider">
+                        <img src="images/OMC1.jpeg" alt="BiteRight 1" class="slide active">
+                        <img src="images/OMC2.jpeg" alt="BiteRight 2" class="slide">
+                        <img src="images/OMC3.jpeg" alt="BiteRight 3" class="slide">
+                        <button class="slider-btn prev-btn" onclick="changeSlide('biteright-slider', -1)">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="changeSlide('biteright-slider', 1)">&#10095;</button>
+                    </div>
+                    <h3>BiteRight - Oh My Code Hackathon</h3>
+                    <p>App developed to help users discover nearby restaurants, calculate meal calories, and receive personalized healthy eating recommendations.</p>
+                </div>
+
+                <div class="card">
+                    <div class="slider-container" id="aircraft-slider">
+                        <img src="images/Aircraft1.png" alt="Aircraft 1" class="slide active">
+                        <img src="images/Aircraft2.png" alt="Aircraft 2" class="slide">
+                        <img src="images/Aircraft3.png" alt="Aircraft 3" class="slide">
+                        <img src="images/Aircraft4.png" alt="Aircraft 4" class="slide">
+                        <button class="slider-btn prev-btn" onclick="changeSlide('aircraft-slider', -1)">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="changeSlide('aircraft-slider', 1)">&#10095;</button>
+                    </div>
+                    <h3>Aircraft Monitoring</h3>
+                    <p>Built a real-time flight tracking dashboard using Python, Streamlit, and OpenSky API, visualizing over 5000+ aircraft records.</p>
+                </div>
+
+                <div class="card">
+                    <div class="slider-container" id="network-slider">
+                        <img src="images/eNSP.jpeg" alt="Network 1" class="slide active">
+                    </div>
+                    <h3>Network Simulation</h3>
+                    <p>Built and tested a scalable enterprise network in Huawei eNSP featuring OSPF, VLANs, DHCP, DNS, and HTTP services.</p>
+                </div>
+
+                <div class="card">
+                    <div class="slider-container" id="twitter-slider">
+                        <img src="images/Twitter1.png" alt="Twitter 1" class="slide active">
+                        <img src="images/Twitter2.png" alt="Twitter 2" class="slide">
+                        <img src="images/Twitter3.png" alt="Twitter 3" class="slide">
+                        <img src="images/Twitter4.png" alt="Twitter 4" class="slide">
+                        <button class="slider-btn prev-btn" onclick="changeSlide('twitter-slider', -1)">&#10094;</button>
+                        <button class="slider-btn next-btn" onclick="changeSlide('twitter-slider', 1)">&#10095;</button>
+                    </div>
+                    <h3>Twitter/X UI/UX Prototype</h3>
+                    <p>Developed a Figma prototype to improve the usability, accessibility, and overall user experience of a social media platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Education Background</h2>
+            
+            <div class="timeline-item">
+                <span class="date">2024-PRESENT</span>
+                <h3>BACHELOR OF INFORMATION TECHNOLOGY</h3>
+                <p>Dean's List for Semester 2, 3, 5</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2023-2024</span>
+                <h3>FOUNDATION OF INFORMATION TECHNOLOGY</h3>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2022</span>
+                <h3>SAMT TENGKU AMPUAN JEMAAH (SPM)</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+
+            <div class="timeline-item">
+                <span class="date">March 2023 - May 2023</span>
+                <h3>Kitchen Chef | Restaurant Mama Mee Yah</h3>
+                <p>Managed high-pressure food operations and inventory coordination.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">July 2023 - August 2023</span>
+                <h3>Service Crew | Concorde Hotel Shah Alam</h3>
+                <p>Delivered fast-paced customer service and managed event dining operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra-Curricular Section -->
+    <section id="extracurricular" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Extra-Curricular</h2>
+
+            <!-- DTE PROJECT SLIDER -->
+            <div class="timeline-item">
+                <div class="slider-container" id="dte-slider">
+                    <!-- 📸 PLACEHOLDERS: Insert your multiple DTE photos here -->
+                    <img src="images/DTE3.jpeg" alt="DTE Photo 1" class="slide active">
+                    <img src="images/DTE2.jpeg" alt="DTE Photo 2" class="slide">
+                    <img src="images/DTE1.jpeg" alt="DTE Photo 3" class="slide">
+                    
+                    <button class="slider-btn prev-btn" onclick="changeSlide('dte-slider', -1)">&#10094;</button>
+                    <button class="slider-btn next-btn" onclick="changeSlide('dte-slider', 1)">&#10095;</button>
+                </div>
+
+                <h3>Down to Earth Project (DTE) | Committee of Logistics Department</h3>
+                <p>Served as Logistics Committee member for a community beach clean-up project at Teluk Batik. Coordinated activity logistics, supported environmental awareness engagement with local children and visitors, and contributed to a University Social Responsibility (USR) initiative promoting environmental sustainability and community involvement.</p>
+            </div>
+
+            <!-- SUARANA PROJECT SLIDER -->
+            <div class="timeline-item">
+                <div class="slider-container" id="suarana-slider">
+                    <!-- 📸 PLACEHOLDERS: Insert your multiple SUARANA photos here -->
+                    <img src="images/MPU2.jpeg" alt="SUARANA Photo 1" class="slide active">
+                    <img src="images/MPU1.jpeg" alt="SUARANA Photo 2" class="slide">
+                    <img src="images/MPU4.jpeg" alt="SUARANA Photo 4" class="slide">
+                    <img src="images/MPU5.jpeg" alt="SUARANA Photo 5" class="slide">
+                    <img src="images/MPU6.jpeg" alt="SUARANA Photo 6" class="slide">
+                    <img src="images/MPU7.jpeg" alt="SUARANA Photo 7" class="slide">
+                    <img src="images/MPU8.jpeg" alt="SUARANA Photo 8" class="slide">
+                    <img src="images/MPU9.jpeg" alt="SUARANA Photo 9" class="slide">
+                    <img src="images/MPU10.jpeg" alt="SUARANA Photo 10" class="slide">
+                    
+                    <button class="slider-btn prev-btn" onclick="changeSlide('suarana-slider', -1)">&#10094;</button>
+                    <button class="slider-btn next-btn" onclick="changeSlide('suarana-slider', 1)">&#10095;</button>
+                </div>
+
+                <h3>SUARANA: STEM Education - MPU4 | Committee of Event Management Department</h3>
+                <p>Contributed to the planning, coordination, and execution of a STEM education outreach programme at MRSM Pengkalan Hulu. Assisted in facilitating interactive STEM learning activities that promoted critical thinking, problem-solving, creativity, and collaboration while enhancing student engagement and learning outcomes.</p>
+            </div>
+
+            <!-- FEXES PROJECT SLIDER -->
+            <div class="timeline-item">
+                <div class="slider-container" id="fexes-slider">
+                    <!-- 📸 PLACEHOLDERS: Insert your multiple FEXES photos here -->
+                    <img src="images/FEXES4.jpeg" alt="FEXES Photo 1" class="slide active">
+                    <img src="images/FEXES2.jpeg" alt="FEXES Photo 2" class="slide">
+                    <img src="images/FEXES3.jpeg" alt="FEXES Photo 3" class="slide">
+                    <img src="images/FEXES1.jpeg" alt="FEXES Photo 4" class="slide">
+                    
+                    <button class="slider-btn prev-btn" onclick="changeSlide('fexes-slider', -1)">&#10094;</button>
+                    <button class="slider-btn next-btn" onclick="changeSlide('fexes-slider', 1)">&#10095;</button>
+                </div>
+
+                <h3>FEXES 4.0: Foundation Entrepreneurship Programme | Project Director</h3>
+                <p>Directed a student-led entrepreneurship project, overseeing end-to-end business operations including budgeting, marketing, and sales execution. Conducted market research and analyzed customer feedback to inform product and business improvements, while strengthening leadership, project management, communication, and analytical decision-making skills through practical entrepreneurial application.</p>
+            </div>
+            
+        </div>
+    </section>
+
+
+<!-- Certificates Section -->
+<section id="certificates">
+    <div class="container">
+        <h2>Certificates</h2>
+        <div class="grid-container">
+            <!-- Certificate 1 -->
+            <div class="card">
+                <img src="images/Cert1.png" alt="Certificate 1" class="card-img slide">
+                <div class="card-content">
+                    <h3>Harnessing the Power of Data with Power BI</h3>
+                    <p>Microsoft | 2026</p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/5KJDAOKEPCDG" target="_blank" class="highlight">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 2 -->
+            <div class="card">
+                <img src="images/Cert2.png" alt="Certificate 2" class="card-img slide">
+                <div class="card-content">
+                    <h3>Preparing Data for Analysis with Microsoft Excel</h3>
+                    <p>Microsoft | 2026</p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/NA625JK161J2" target="_blank" class="highlight">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 3 -->
+            <div class="card">
+                <img src="images/Cert3.png" alt="Certificate 3" class="card-img slide">
+                <div class="card-content">
+                    <h3>Extract, Transform, and Load Data in Power BI</h3>
+                    <p>Microsoft | 2026</p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/O7DFZ80P7BQY" target="_blank" class="highlight">View Credential</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- The Modal -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="zoomedImg">
+</div>
+
+    <!-- Footer / Contact Section -->
+    <footer>
+    <div class="container">
+        <h2 class="footer-title">LET'S WORK TOGETHER</h2>
+        
+        <!-- Simplified to one red line -->
+        <hr class="footer-line">
+        
+        <p>
+            <span class="icon">📞</span> +60 19 625 9361
+        </p>
+        <p>
+            <span class="icon">✉️</span> muhammad_22011503@utp.edu.my
+        </p>
+
+        <!-- Added Copyright -->
+        <p class="copyright">© 2026 Muhammad Hakim Bin Hisham</p>
+    </div>
+</footer>
+
+    <!-- DYNAMIC JAVASCRIPT FOR MULTIPLE SLIDERS -->
+    <script>
+        function changeSlide(sliderId, n) {
+            // Find the specific slider container by its ID
+            const slider = document.getElementById(sliderId);
+            const slides = slider.querySelectorAll('.slide');
+            
+            // Find the index of the currently active slide
+            let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+            
+            // Remove 'active' class from current slide
+            slides[currentIndex].classList.remove('active');
+            
+            // Calculate the new index
+            let newIndex = currentIndex + n;
+            
+            // Loop back to start or end if necessary
+            if (newIndex >= slides.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = slides.length - 1;
+            }
+            
+            // Add 'active' class to the new slide
+            slides[newIndex].classList.add('active');
+        }
+
+        const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("zoomedImg");
+const closeBtn = document.querySelector(".close-modal");
+
+// Select all project images
+document.querySelectorAll('.slide').forEach(img => {
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+});
+
+// Close modal when clicking the 'X'
+closeBtn.onclick = function() { 
+    modal.style.display = "none";
+}
+
+// Close modal when clicking anywhere on the screen
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    </script>
+</body>
+</html>
